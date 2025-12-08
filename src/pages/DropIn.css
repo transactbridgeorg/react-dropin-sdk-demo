@@ -1,0 +1,56 @@
+body {
+  background: #f4f6f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 98vh;
+}
+
+.wrapper {
+  width: 450px;
+  margin: 40px auto;
+  padding: 10px 22px 25px 22px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.tab-btn {
+  font-size: 14px;
+  background: #e9ecef;
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  flex: 1;
+  cursor: pointer;
+}
+
+.tab-btn.active {
+  background: #007aff;
+  color: white;
+}
+
+.pay-btn {
+  width: 100%;
+  padding: 12px;
+  background: #1e7e34;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  border: none;
+}
+.pay-btn:disabled {
+  background: #1e7e34 !important;
+  color: #ffffff9c !important;
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+.pay-btn:hover {
+  background: #218838;
+}
+
+.inputWrapper {
+  min-height: 40px;
+}
