@@ -34,7 +34,7 @@ export const ToastProvider = ({ children }: { children: React.ReactNode }) => {
 
   // ------------------------------------------------
   // SOFT HIDE toast (Bootstrap hide.bs.toast)
-  // This triggers fade-out but does NOT remove DOM
+  // This triggers fade-out but does NOT remove from DOM
   // ------------------------------------------------
   const softHideToast = useCallback((id: number) => {
     setToasts((prev) =>
@@ -59,8 +59,8 @@ export const ToastProvider = ({ children }: { children: React.ReactNode }) => {
       {/* Render Toast UI */}
       <ToastContainer
         messages={toasts}
-        onSoftHide={softHideToast}   // added
-        onRemove={removeToast}       // existing
+        onSoftHide={softHideToast}
+        onRemove={removeToast}
       />
     </ToastContext.Provider>
   );

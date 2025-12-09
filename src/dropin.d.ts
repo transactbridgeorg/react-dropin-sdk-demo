@@ -12,28 +12,9 @@ export type TBDropinInstance = {
   pay: (payload: any) => Promise<any>;
 };
 
+// ADD TO WINDOW OBJECT SO THAT IT LATER DOES NOT GIVE ERRORS WHILE USING window.TBDropin
 declare global {
   interface Window {
     TBDropin?: TBDropinInstance; // constructor from sdk.js
   }
 }
-export type DropinContextValue = {
-  isSdkScriptLoaded: boolean;
-  isSdkReady: boolean;
-  sdkError?: string;
-
-  isUpiMounted: boolean;
-  isUpiReady: boolean;
-  upiValue: string | null;
-
-  mountUpi: (selector?: string) => void;
-  unmountUpi: () => void;
-};
-
-export type InputConfigItem = {
-  element?: string;
-  selector?: string;
-  config: object;
-};
-
-export type InputType = (typeof INPUT_TYPE)[keyof typeof INPUT_TYPE];

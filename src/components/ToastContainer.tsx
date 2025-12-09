@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+'use client';
 import { useEffect, useRef } from "react";
 
 type ToastMessage = {
@@ -11,7 +12,7 @@ type ToastMessage = {
 export default function ToastContainer({
   messages,
   onRemove,
-  onSoftHide,  // we add this callback — explained below
+  onSoftHide,
 }: {
   messages: ToastMessage[];
   onRemove: (id: number) => void;
@@ -63,7 +64,7 @@ function ToastItem({
     };
 
     const handleHidden = () => {
-      // Remove DOM only AFTER fade-out is finished
+      // Remove from DOM only AFTER fade-out is finished
       onRemove(message.id);
     };
 
