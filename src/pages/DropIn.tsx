@@ -138,7 +138,6 @@ const DropIn = () => {
           id: 'tb_sdk_script',
           waitForLoad: true,
           src: 'https://cdn.transactbridge.com/scripts/v1.0/sandbox-sdk.js', // Hosted SDK.
-          // src: 'http://localhost:4000/sdk.js', // local sdk.
         });
         if (!loaded) {
           return;
@@ -157,7 +156,6 @@ const DropIn = () => {
         try {
           await window?.TBDropin?.init({
             mode: 'sandbox',
-            // mode: 'development',
             popupConfig: POPUP_CONFIG_STYLE,
           });
   
