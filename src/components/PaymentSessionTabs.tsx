@@ -4,8 +4,13 @@ import { useState } from "react";
 // ````````````````CONTEXT IMPORT````````````````
 import { useCommonContext } from "../context/CommonContextProvider";
 
+const SESSIONS = {
+    BILLING_SESSION: 'BILLING_SESSION',
+    SUBSCRIPTION: 'SUBSCRIPTION',
+}
+
 const PaymentSessionTabs = () => {
-    const [session, setSession] = useState('BILLING_SESSION');
+    const [session, setSession] = useState(SESSIONS.BILLING_SESSION);
   const {billingSessionId, setBillingSessionId, subscriptionId, setSubscriptionId} = useCommonContext();
 
     const setSessionTab = (_session: string) => {
@@ -17,17 +22,21 @@ const PaymentSessionTabs = () => {
   return (
     <>
         <div className="nav d-flex gap-2 mb-3">
-            <button className="tab-btn active" data-bs-toggle="tab" onClick={() => setSessionTab('BILLING_SESSION')}>
+            <button 
+            className={`tab-btn ${session === SESSIONS.BILLING_SESSION ? 'active' : ''}`}
+            onClick={() => setSessionTab(SESSIONS.BILLING_SESSION)}>
             Billing Session ID
             </button>
 
-            <button className="tab-btn" data-bs-toggle="tab" onClick={() => setSessionTab('SUBSCRIPTION')}>
+            <button
+            className={`tab-btn ${session === SESSIONS.SUBSCRIPTION ? 'active' : ''}`}
+            onClick={() => setSessionTab(SESSIONS.SUBSCRIPTION)}>
             Subscription ID
             </button>
         </div>
 
         <div className="tab-pane mb-3" id="subscriptionTab">
-            {session === 'BILLING_SESSION' && 
+            {session === SESSIONS.BILLING_SESSION && 
                 <input
                     name='billingSessionId'
                     id="billingSessionId"
@@ -39,7 +48,7 @@ const PaymentSessionTabs = () => {
                     }}
                 />
             }
-            {session === 'SUBSCRIPTION' && 
+            {session === SESSIONS.SUBSCRIPTION && 
                 <input
                     name='subscriptionId'
                     id="subscriptionId"
